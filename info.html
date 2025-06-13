@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" /> 
+  <script src="helper.js"></script> 
+  <link href="c3-eb4b9be8.css" rel="stylesheet" type="text/css" />
+    <script src="d3-5.8.2.min-c5268e33.js"></script>
+    <script src="c3.min-d2a1f852.js"></script>
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+
+  </head>
+  <body id="bg" onload="init()" style="background-image: url('images/minecraft.png') ;background-repeat:no-repeat;
+    background-size:cover;">
+    <div id="banner" >
+      <div id="banner" style="align-items:center; text-align:center;">
+        <p style= "color: black;font-size: 300%; font-family: 'Brush Script MT', cursive; ">Popular Baby Names</p>
+      </div>
+    </div
+
+  <br>
+    <nav style="color:white;" class="flex-container">
+      <a style="border: 2px solid black;" href="index.html">Main Page</a>
+      <a style="border: 2px solid black;" href="info.html" >Info Page</a>
+      <a style="border: 2px solid black;" href="chart.html">Chart Page</a>
+    </nav>
+
+    <div class="container subbanner" >
+      <div>
+        <p style = " color: white; text-shadow: 2px 2px black; font-family:verdana; font-size: 150%" >This very good-looking page can show you the good stats of the names of babies born in New York City. Along with that, it can also show you the gender of the baby, the ethnicity, and the frequency of the name. In this page, you can search for any baby name from 2021 just by putting in an ethnicity of your choice.</p>
+       </div>
+    </div>
+    <div style="align-items:center; text-align:center; justify-content:center; align-content:center;">
+      <img style = "border: 6px solid black" src="images/wizard.jpg" width = "550" height = "550">
+    </div>
+  <div style="justify-content: center; align-content:center; align-items:center; text-align:center;">
+    <input type="text" id="ethnicity" placeholder="Enter any ethnicity you like">
+    <input id = "mico" style= "font-family: 'Brush Script MT',cursive; background-color: black; color:white;" type="button" value="Begin Search" onclick="showHelp()">
+    <div id="output"></div>
+    </div>
+  <div class="container card" >
+  </div>
+    <div id="footer">
+      <div class="bottom-fixed" style="background-color: aqua; align-items:center; text-align:center; justify-content:center; align-content:center; ">
+        <p style="font-size: 150%; color:black; font-family: 'Brush Scrip M7', cursive ;">Created by Adrian and Asael</p>
+      </div>
+    </div>
+    <script>
+      function showHelp() {
+
+      let ethnicity = document.getElementById("ethnicity").value;
+      let output = document.getElementById("output");
+      let build = "";
+      for (let i = 0; i < data.length; i++){
+        let info = data[i];
+        if(info.ethcty == ethnicity){
+          
+          build +=`<div class="row">`;
+          build +=`<div class="column">`;
+          build +=`<div class="flip-card">`;
+          build +=`<div class="flip-card-inner">`;
+          build +=`<div class="flip-card-front">`
+          build +=`<p style= " font-family: 'Brush Scrip M7', cursive ; color:white; text-shadow: 2px 2px black; font-size: 200%">First name: ${info.nm}</p>
+          <p style= " font-family: 'Brush Scrip M7', cursive ; ">Hover for more amazing info</p>`;
+          build +=``
+          build +=`</div>`;
+          build +=`<div class="flip-card-back">`;
+          build +=`<h1>Gender: ${info.gndr}</h1>`;
+          build +=`<p style="font-family: 'papyrus';">Ethnicity: ${info.ethcty}</p>`;
+          build +=`<p>Number of babies born with this name: ${info.cnt}</p>`;
+          build +=`</div>`;
+          build +=`</div>`;
+          build +=`</div>`;
+          build +=`</div>`;
+          build +=`</div>`;
+          
+        }
+      }
+      output.innerHTML= build;
+      }
+    </script>
+  </body>
+</html>
